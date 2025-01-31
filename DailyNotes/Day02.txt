@@ -1,0 +1,190 @@
+Array:
+
+1. Single dimensional arry
+2. Multi dimensional array
+	Example: int[,] a = new int[2,2]  2*2 matrix
+3. Jagged array	
+
+//
+1.Write a program in C# Sharp to separate odd and even integers into separate arrays.
+Test Data :
+Input the number of elements to be stored in the array :5
+Input 5 elements in the array :
+element - 0 : 25
+element - 1 : 47
+element - 2 : 42
+element - 3 : 56
+element - 4 : 32
+Expected Output:
+The Even elements are:
+42 56 32
+The Odd elements are :
+25 47
+
+Program:
+
+using System;
+
+public class HelloWorld
+{
+    public static void Main(string[] args)
+    {
+        int n;
+        Console.WriteLine("Enter the array length");
+        n=Convert.ToInt32(Console.ReadLine());
+        
+        int[] arr = new int[n];
+        Console.WriteLine("Enter the array elements");
+        for(int i=0;i<arr.Length;i++){
+            arr[i]=Convert.ToInt32(Console.ReadLine());
+        }
+        
+        Console.WriteLine("Even numbers: ");
+        /*
+        for(int i=0;i<arr.Length;i++){
+            if(arr[i]%2==0){
+                Console.Write(arr[i]+" ");
+            }
+        }
+        */
+        
+        foreach(int num in arr){
+            if(num%2==0){
+                Console.Write(num+" ");
+            }
+        }
+        
+        Console.WriteLine();
+        
+        /*
+        Console.WriteLine("Odd numbers: ");
+        for(int i=0;i<arr.Length;i++){
+            if(arr[i]%2!=0){
+                Console.Write(arr[i]+" ");
+            }
+        }
+        */
+        foreach(int num in arr){
+            if(num%2!=0){
+                Console.Write(num+" ");
+            }
+        }
+        
+    }
+}
+
+2.Given an array of integers arr[], 
+the task is to move all the zeros to the end of the array 
+while maintaining the relative order of all non-zero elements.
+
+Examples: 
+
+Input: arr[] = [1, 2, 0, 4, 3, 0, 5, 0]
+Output: arr[] = [1, 2, 4, 3, 5, 0, 0, 0]
+Explanation: There are three 0s that are moved to the end.
+
+
+Input: arr[] = [10, 20, 30]
+Output: arr[] = [10, 20, 30]
+Explanation: No change in array as there are no 0s.
+
+Input: arr[] = [0, 0]
+Output: arr[] = [0, 0]
+Explanation: No change in array as there are all 0s.
+
+Program:
+
+using System;
+
+public class Hello
+{
+    public static void Main(string[] args)
+    {
+        int n;
+        Console.WriteLine("Enter the array length:");
+        n = Convert.ToInt32(Console.ReadLine());
+        
+        int[] arr = new int[n];
+        Console.WriteLine("Enter the array values");
+        for (int i = 0; i < arr.Length; i++)
+        {
+            arr[i] = Convert.ToInt32(Console.ReadLine());
+        }
+        
+        MoveZeroToEnd(arr);
+        
+    }
+    
+    static void MoveZeroToEnd(int[] arr)
+    {
+        int index = 0;
+        for (int i = 0; i < arr.Length; i++)
+        {
+            if (arr[i] != 0)
+            {
+                arr[index++] = arr[i];
+            }
+        }
+        
+        while (index < arr.Length)
+        {
+            arr[index++] = 0;
+        }
+        
+        Console.WriteLine("After moving zero to the end");
+        for(int i=0;i<arr.Length;i++){
+            Console.WriteLine(arr[i]);
+        }
+    }    
+}
+
+Polymorphism:
+
+using System;
+
+public class Account
+{
+    public virtual void AccountsTypes()
+    {
+        String[] types = { "savings", "current" };
+        foreach (String type in types)
+        {
+            Console.WriteLine(type);
+        }
+    }
+}
+
+public class SBI : Account
+{
+    public override void AccountsTypes()
+    {
+        String[] types = { "savings", "current", "Corporation" };
+        foreach (String type in types)
+        {
+            Console.WriteLine(type);
+        }
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        // Creating object of base class
+        Account ac = new Account();
+        Console.WriteLine("Account Types from Base Class:");
+        ac.AccountsTypes();
+
+        Console.WriteLine();
+
+        // Creating object of derived class
+        SBI sbi = new SBI();
+        Console.WriteLine("Account Types from Derived Class (SBI):");
+        sbi.AccountsTypes();
+    }
+}
+
+
+Abstraction:
+Interface:
+

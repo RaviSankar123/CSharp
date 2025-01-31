@@ -1,0 +1,68 @@
+/*
+Console.WriteLine("Enter the employee ID: ");
+int empId = Convert.ToInt32(Console.ReadLine());
+
+Console.WriteLine("Enter the employee name:");
+String empName = Console.ReadLine();
+
+Console.WriteLine("Employee ID:"+empId);
+Console.WriteLine("Employee name:"+empName);
+*/
+
+/*
+ * CLR - Common Language Runtime
+ *      - Compilation
+ *      - Memory management
+ *      - Development
+ *      - Debugging
+ *  
+ * CLS - Common Language Specification
+ * CTS - Common Type System
+ *      - c++
+ *      - Java
+ *      - vb 
+ * 
+ * Compilation:
+ * 1. Source code converted into MSIL(Microsoft Intermediate Language)
+ * 2. MSIL converted into Machine code by JIT(just in time compiler)
+
+/*
+// Boxing and UnBoxing
+int a = 100; 
+object o = a; // value type into refernce type -> Boxing
+int b = Convert.ToInt32(o); // refrence type into value type -> UnBoxing
+
+Console.WriteLine(a);
+Console.WriteLine(o);
+Console.WriteLine(b);
+*/
+
+/*
+//String and StringBuilder
+
+//String is immutable, it means if you create a string object you cannot modify it.
+  It always create a new object of the string.
+  
+//StringBuilder is mutable, it means if you create a string object then you can perform any operations like   
+  insert, replace or append without creating a new object.
+  
+ * String - immutable
+ * StringBuilder - mutable
+ * 
+ * String a = "ravi";       -> a->M001->ravi
+ * a = "sankar";            -> a->M002->sankar
+ * 
+ * StringBuilder a = "ravi";    -> a -> M001 -> ravi
+ * a = "sankar";                -> a -> M001 -> sankar
+*/
+
+Assembly
+	It will have collectuin of code file that complied into executable(.exe)
+	
+Types of assemblies:
+
+		1. private assembly
+		2. shared assemblies
+			-Global Assembly Cache(GAC)
+		3. Satellite assemblies
+		4. Dynamic link assemblies

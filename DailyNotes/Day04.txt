@@ -1,0 +1,113 @@
+Reference(ref) keyword:
+
+Collections:
+
+1. Non generic type/collections
+	-no need to mention type/data type
+		-ArrayList
+		-stack
+		-queue
+		-HashTable
+		-SortedList
+	
+2. generic type/collections
+	-need to add type/data type
+		-Dictionary<key,value>
+		-List<T>
+		-Stack<T>
+		-queue<T>
+		-HashSet<T> //does not allow duplicate value
+		-LinkedList<T>
+		-SortedList<key,value>
+	
+	
+1.Example for Non-Generic and Generic type:
+
+using System;
+
+public class Collections
+{
+    public string Name; // Moved outside Main()
+
+    public void CreateEmployee()
+    {
+        // Non-generic type
+        object a = 10;
+        int x = (int)a;  // Type casting
+        object b = "ravi";
+        object c = true;
+
+        // Generic type
+        int value = 20;
+        string y = "sankar";
+        bool z = true;
+
+        // Output
+        Console.WriteLine(a);
+        Console.WriteLine(x);
+        Console.WriteLine(b);
+        Console.WriteLine(c);
+        Console.WriteLine(value);
+        Console.WriteLine(y);
+        Console.WriteLine(z);
+    }
+}
+
+public class CollectionExample
+{
+    public static void Main(string[] args)
+    {
+        Collections c = new Collections();
+        c.CreateEmployee();
+    }
+}
+	
+
+2.Example for Generic Collections:
+
+using System;
+
+public class Employee{
+    public void CreateEmployee<T>(T value)//Generic
+    {
+        Console.WriteLine(value);
+    }
+}
+
+public class GenericCollections{
+    public static void Main(String[] args){
+        Employee employee = new Employee();
+        employee.CreateEmployee<int>(10);
+        employee.CreateEmployee<string>("ravisankar");
+        employee.CreateEmployee<bool>(true);
+    }
+}	
+
+3.Example for ArrayList(Generic type):
+
+using System;
+using System.Collections;//required for ArrayList
+
+public class Employees{
+    public void CreateEmployee(){
+        ArrayList arrayList = new ArrayList();
+        arrayList.Add(100);
+        arrayList.Add("ravisankar");
+        arrayList.Add("akshit");
+        
+        arrayList.Remove(100);
+        arrayList.RemoveAt(1);//index
+        arrayList[0]="Anbu";//update
+        
+        for(int i=0; i<arrayList.Count; i++){
+            Console.WriteLine(arrayList[i]);
+        }
+    }
+}
+
+public class ArrayListExample{
+    public static void Main(String[] args){
+        Employees employee = new Employees();
+        employee.CreateEmployee();
+    }
+}
