@@ -1,0 +1,223 @@
+1. Second Largest Element in an Array
+Given an array of positive integers arr[] of size n, the task is to find second largest distinct element in the array.
+
+Note: If the second largest element does not exist, return -1.
+
+Examples:
+
+Input: arr[] = [12, 35, 1, 10, 34, 1]
+Output: 34
+Explanation: The largest element of the array is 35 and the second largest element is 34.
+
+
+Input: arr[] = [10, 5, 10]
+Output: 5
+Explanation: The largest element of the array is 10 and the second largest element is 5.
+
+
+Input: arr[] = [10, 10, 10]
+Output: -1
+Explanation: The largest element of the array is 10 there is no second largest element.
+
+Program:
+
+using System;
+
+public class Program{
+	
+	static void SecondLargestNumber(int[] arr){
+		int max=arr[0];
+		int secMax=int.MinValue;
+		
+		for(int i=0;i<arr.Length;i++)
+		{
+			if(arr[i]>max)
+			{
+			    max=arr[i];
+			}
+		}
+		//Console.WriteLine("largest number:"+max);
+		for(int i=0;i<arr.Length;i++)
+		{
+		    if(arr[i]>secMax && arr[i]<max){
+		        secMax=arr[i];
+		    }
+		}
+		Console.WriteLine("largest number:"+secMax);
+	}	
+    public static void Main(String[] args){
+        Console.WriteLine("Enter the array length");
+        int n;
+        n=Convert.ToInt32(Console.ReadLine());
+        int[] arr=new int[n];
+        
+        Console.WriteLine("Enter the array values:");
+        for(int i=0;i<arr.Length;i++){
+            arr[i]=Convert.ToInt32(Console.ReadLine());
+        }
+		
+		SecondLargestNumber(arr);
+    }
+}
+
+***********************
+
+2. Maximum consecutive one’s (or zeros) in a binary array
+Given a binary array, find the count of a maximum number of consecutive 1s present in the array.
+
+Examples : 
+
+Input: arr[] = {1, 1, 0, 0, 1, 0, 1, 0, 1, 1, 1, 1}
+Output: 4
+Explanation: The maximum number of consecutive 1’s in the array is 4 from index 8-11.
+
+
+Input: arr[] = {0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1}
+Output: 1
+Explanation: The maximum number of consecutive 0’s in the array is 1 from index 0-1.
+
+Program:
+
+using System;
+
+public class Program
+{
+    static void MaxConsecutiveOnes(int[] arr)
+    {
+        int maxCount = 0;
+        int currentCount = 0;
+
+        foreach (int num in arr)
+        {
+            if (num == 1)
+            {
+                currentCount++;
+                maxCount = Math.Max(maxCount, currentCount);
+            }
+            else
+            {
+                currentCount = 0; // Reset when we hit a 0
+            }
+        }
+
+        Console.WriteLine("Maximum consecutive 1's: " + maxCount);
+    }
+
+    public static void Main(string[] args)
+    {
+        int[] arr1 = { 1, 1, 0, 0, 1, 0, 1, 0, 1, 1, 1, 1 };
+        MaxConsecutiveOnes(arr1);
+
+        int[] arr2 = { 0, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1 };
+        MaxConsecutiveOnes(arr2);
+    }
+}
+
+
+**********************************
+
+3. Missing and Repeating in an Array
+
+Given an unsorted array of size n. Array elements are in the range of 1 to n. One number from set {1, 2, …n} is missing and one number occurs twice in the array. Find these two numbers.
+
+Examples: 
+
+Input: arr[] = {3, 1, 3}
+Output: Missing = 2, Repeating = 3
+Explanation: In the array, 2 is missing and 3 occurs twice 
+
+
+Input: arr[] = {4, 3, 6, 2, 1, 1}
+Output: Missing = 5, Repeating = 1
+
+*******************
+
+4. Find duplicate characters in a string
+
+Example:
+Here, you can see we have passed "google" as a string, and we got a result as "og". It means these two characters (og)are duplicates in the word "google".
+
+Program:
+
+using System;
+
+public class Program
+{
+    static void FindDuplicateCharacters(string str)
+    {
+        int[] charCount = new int[256];  // Array to store counts of each character
+
+        // Count occurrences of each character
+        foreach (char c in str)
+        {
+            charCount[c]++;
+        }
+
+        // Collect and display characters that occur more than once
+        Console.Write("Duplicate characters: ");
+        for (int i = 0; i < 256; i++)
+        {
+            if (charCount[i] > 1)
+            {
+                Console.Write((char)i + " ");
+            }
+        }
+        Console.WriteLine();
+    }
+
+    public static void Main(String[] args)
+    {
+        // Example usage
+        string input = "programming";
+        FindDuplicateCharacters(input);
+    }
+}
+
+***************************
+
+5. Get all unique characters in a string
+
+Example:
+you can see the output as"gole". This means after removing duplicate characters from the word "google," we get the "gole" which are unique chars.
+
+Program:
+
+using System;
+
+public class Program
+{
+    static void FindUniqueCharacters(string str)
+    {
+        int[] charCount = new int[256];  // Array to store counts of each character
+
+        // Count occurrences of each character
+        foreach (char c in str)
+        {
+            charCount[c]++;
+        }
+
+        // Collect and display characters that occur exactly once
+        Console.Write("Unique characters: ");
+        foreach (char c in str)
+        {
+            if (charCount[c] == 1) // Print only unique characters
+            {
+                Console.Write(c + " ");
+            }
+        }
+        Console.WriteLine(); // Newline after output
+    }
+
+    public static void Main(String[] args)
+    {
+        // Example usage
+        string input = "programming";
+        FindUniqueCharacters(input);
+    }
+}
+
+*******************
+
+6. Reverse each word of the sentence (string)
+
+example: "My name is vasu"      output->"yM eman si usav"
