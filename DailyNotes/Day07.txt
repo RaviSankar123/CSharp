@@ -1,0 +1,62 @@
+Extension Method:
+
+	- Add new methods into an existing class without modifying its original source code.
+	
+Key features:
+
+	- define in an static class, the extension static method must be inside a static class.
+	- Parameter with 'this' keyword followed by the type it extends
+	- Called like an instance method
+	- called by extended type(variable)
+	
+Program:
+
+
+using System;
+
+public static class Interest
+{
+    public static int GetInterest(this int value)
+    {
+        int result = 0;
+        if(value>0 && value<10)
+            result=value+10;
+        else if(value>10 && value<20)
+            result=value+20;
+        else if(value>20&& value<30)
+            result=value+30;
+        return result;    
+    }
+}
+class HelloWorld
+{
+  public static void Main(String[] args) 
+  {
+      int myValue=25;
+      int res=myValue.GetInterest();
+      Console.WriteLine(res);
+  }
+}	
+
+Program:
+
+using System;
+
+public static class MyExtensions
+{
+    public static int GetSum(this int a, int b)
+    {
+        return a + b;
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        int a = 10;
+        int b = 20;
+        int result = a.GetSum(b);  // Calls GetSum as if it's part of int
+        Console.WriteLine(result);  // Output: 30
+    }
+}
